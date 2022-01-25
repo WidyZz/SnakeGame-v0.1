@@ -25,7 +25,14 @@ namespace SnakeGame {
             Snake.Add(head);
             timer1.Start();
         }
-
+        private void RestartGame() {
+            for (int i = 1; i < Snake.Count; i++) {
+                if(Snake.Count !=1)
+                    this.Controls.Remove(Snake[i]);
+            }
+            if (Snake.Count != 1)
+                Snake.Clear();
+        }
         private PictureBox AddTail() {
             PictureBox tail = new PictureBox();
             tail.Name = score.ToString();
@@ -77,19 +84,26 @@ namespace SnakeGame {
 
         private void Collision() {
             if (head.Location.Y == picCanvas.Height - head.Height
-                || head.Location.Y == 12)
-                timer1.Stop();
+                || head.Location.Y == 12) {
+                timer1.Stop(); GameOver();
+            }
             else if (head.Location.X == picCanvas.Width - head.Width
-                || head.Location.X == 12)
-                timer1.Stop();
+                || head.Location.X == 12) {
+                timer1.Stop(); GameOver();
+            }
         }
 
         private void TailLocation() {
-            lblScore.Text = Snake.Count.ToString();
             for (int i = Snake.Count - 1; i > 0; i--) {
                 Snake[0].Location = head.Location;
                 Snake[i].Location = Snake[i - 1].Location;
             }
+        }
+        private void GameOver() {
+            lblScore.Text = score.ToString();
+            lblGameOver.Visible = true;
+            lblTotalScore.Visible = true;
+            lblScore.Visible = true;
         }
 
         private void KeyBindings(object sender, KeyPressEventArgs e) {

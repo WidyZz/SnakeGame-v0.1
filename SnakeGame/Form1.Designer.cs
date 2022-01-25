@@ -31,6 +31,8 @@ namespace SnakeGame {
             this.button3 = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lblScore = new System.Windows.Forms.Label();
+            this.lblGameOver = new System.Windows.Forms.Label();
+            this.lblTotalScore = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picCanvas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -84,17 +86,46 @@ namespace SnakeGame {
             // lblScore
             // 
             this.lblScore.AutoSize = true;
-            this.lblScore.Location = new System.Drawing.Point(709, 93);
+            this.lblScore.BackColor = System.Drawing.Color.Transparent;
+            this.lblScore.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblScore.Location = new System.Drawing.Point(337, 212);
             this.lblScore.Name = "lblScore";
-            this.lblScore.Size = new System.Drawing.Size(42, 15);
+            this.lblScore.Size = new System.Drawing.Size(28, 32);
             this.lblScore.TabIndex = 3;
-            this.lblScore.Text = "Score: ";
+            this.lblScore.Text = "0";
+            this.lblScore.Visible = false;
+            // 
+            // lblGameOver
+            // 
+            this.lblGameOver.AutoSize = true;
+            this.lblGameOver.BackColor = System.Drawing.Color.Transparent;
+            this.lblGameOver.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblGameOver.Location = new System.Drawing.Point(239, 121);
+            this.lblGameOver.Name = "lblGameOver";
+            this.lblGameOver.Size = new System.Drawing.Size(224, 50);
+            this.lblGameOver.TabIndex = 4;
+            this.lblGameOver.Text = "GAME OVER";
+            this.lblGameOver.Visible = false;
+            // 
+            // lblTotalScore
+            // 
+            this.lblTotalScore.AutoSize = true;
+            this.lblTotalScore.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotalScore.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblTotalScore.Location = new System.Drawing.Point(311, 180);
+            this.lblTotalScore.Name = "lblTotalScore";
+            this.lblTotalScore.Size = new System.Drawing.Size(86, 21);
+            this.lblTotalScore.TabIndex = 5;
+            this.lblTotalScore.Text = "Total score:";
+            this.lblTotalScore.Visible = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblTotalScore);
+            this.Controls.Add(this.lblGameOver);
             this.Controls.Add(this.lblScore);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -118,6 +149,8 @@ namespace SnakeGame {
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label lblScore;
+        private System.Windows.Forms.Label lblGameOver;
+        private System.Windows.Forms.Label lblTotalScore;
     }
 }
 
